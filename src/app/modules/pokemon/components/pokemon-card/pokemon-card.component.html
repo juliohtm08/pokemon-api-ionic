@@ -1,3 +1,37 @@
-<p>
-  pokemon-card works!
-</p>
+<div class="card-container">
+  <!-- Card  -->
+  <ion-card
+    *ngIf="pokemonDatasInput"
+    class="pokemon-card"
+    [ngStyle]="cardStyles"
+    (mouseenter)="onCardMouseEnter()"
+    (mouseleave)="onCardMouseLeave()"
+  >
+    <!-- Cabeçalho -->
+    <ion-card-header class="card-header">
+      <ion-card-title class="pokemon-name">
+        {{ pokemonDatasInput.name }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <!-- Imagem -->
+    <ion-card-content class="card-content">
+      <div class="image-container">
+        <img
+          [src]="
+            pokemonDatasInput.sprites.versions['generation-v']['black-white']
+              .animated.front_default
+          "
+          [alt]="pokemonDatasInput.name"
+          [ngStyle]="imgStyles"
+          (mouseenter)="onImgMouseEnter()"
+          (mouseleave)="onImgMouseLeave()"
+          class="pokemon-image"
+        />
+      </div>
+    </ion-card-content>
+
+    <!-- Rodapé -->
+    <div class="card-footer">Pokémon</div>
+  </ion-card>
+</div>

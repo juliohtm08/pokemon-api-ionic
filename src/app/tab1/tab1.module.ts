@@ -15,9 +15,7 @@ import { PokemonCardComponent } from '../modules/pokemon/components/pokemon-card
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
-    //pokemon
-    PokemonCardComponent,
   ],
-  declarations: [Tab1Page],
+  declarations: [Tab1Page, PokemonCardComponent],
 })
 export class Tab1PageModule {}
