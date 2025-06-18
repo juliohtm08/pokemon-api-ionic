@@ -1,15 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> teste </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">teste</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Barra de pesquisa -->
+  <ion-card class="ion-margin">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-input
+          type="text"
+          placeholder="Buscar Pokémon"
+          name="pokemon"
+          [(ngModel)]="initialPokemonName"
+          required
+          clearInput
+        ></ion-input>
+
+        <ion-button
+          fill="clear"
+          slot="end"
+          type="submit"
+          size="default"
+          shape="round"
+        >
+          <ion-icon name="search" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </form>
+  </ion-card>
 
   <app-explore-container name="teste"></app-explore-container>
 </ion-content>
