@@ -29,7 +29,7 @@ export class Tab1Page implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           response && (this.pokemonDatas = response);
-          console.log(this.pokemonDatas);
+          //console.log(this.pokemonDatas);
         },
         error: (err) => console.log(err),
       });

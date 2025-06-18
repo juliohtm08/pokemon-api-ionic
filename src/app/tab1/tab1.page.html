@@ -31,5 +31,8 @@
     </form>
   </ion-card>
 
-  <app-explore-container name="teste"></app-explore-container>
+  <app-pokemon-card
+    *ngIf="pokemonDatas"
+    [pokemonDatasInput]="pokemonDatas"
+  ></app-pokemon-card>
 </ion-content>
