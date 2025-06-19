@@ -12,4 +12,10 @@ export interface IPokemonDatas {
       };
     };
   };
+  stats: {
+    base_stat: number;
+    stat: {
+      name: string;
+    };
+  }[];
 }

@@ -9,13 +9,18 @@ import { IPokemonDatas } from '../models/interfaces/pokemon.interface';
   standalone: false,
 })
 export class Tab2Page implements OnInit {
-  favorites: IPokemonDatas[] = [];
+  pokemonDatas: IPokemonDatas[] = [];
 
   constructor(private favoritesService: FavoritesService) {}
-
   ngOnInit(): void {
     this.favoritesService.favorites$.subscribe((list) => {
-      this.favorites = list;
+      this.pokemonDatas = list;
+
+      this.pokemonDatas.forEach((pokemon) => {
+        pokemon.stats.forEach((stat) => {
+          console.log(`${pokemon.name} - ${stat.stat.name}: ${stat.base_stat}`);
+        });
+      });
     });
   }
 }

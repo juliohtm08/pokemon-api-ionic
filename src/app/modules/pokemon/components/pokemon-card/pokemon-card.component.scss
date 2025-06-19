@@ -1,25 +1,23 @@
-/* Variáveis para facilitar a manutenção */
 $primary-color: #4d8dff;
 $dark-bg: #1f1f1f;
 $darker-bg: #121212;
 $text-color: #f0f0f0;
 
-/* Estilos base para mobile primeiro */
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 10vh;
   padding: 1rem;
   font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 }
 
 .pokemon-card {
   width: 100%;
-  max-width: 250px; // Ou outro valor que você achar ideal
-  flex: 1 1 250px; // Permite crescer e quebrar linha
+  max-width: 250px;
+  flex: 1 1 250px;
   min-height: auto;
-  margin: auto;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,7 +27,6 @@ $text-color: #f0f0f0;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  /* Espaçamento reduzido para mobile */
   .card-header {
     padding-bottom: 0;
     background: linear-gradient(to right, #2a2a2a, $dark-bg);
@@ -79,9 +76,6 @@ $text-color: #f0f0f0;
   }
 }
 
-/* Media Queries para diferentes tamanhos de tela */
-
-/* Telas pequenas (retrato) */
 @media (max-width: 576px) and (orientation: portrait) {
   .pokemon-card {
     max-width: 95%;
@@ -97,7 +91,6 @@ $text-color: #f0f0f0;
   }
 }
 
-/* Telas pequenas (paisagem) */
 @media (max-width: 576px) and (orientation: landscape) {
   .card-container {
     min-height: auto;
@@ -127,12 +120,11 @@ $text-color: #f0f0f0;
     }
 
     .card-footer {
-      display: none; /* Esconde o footer em paisagem para economizar espaço */
+      display: none;
     }
   }
 }
 
-/* Tablets e telas médias */
 @media (min-width: 577px) and (max-width: 992px) {
   .pokemon-card {
     max-width: 80%;
@@ -148,7 +140,6 @@ $text-color: #f0f0f0;
   }
 }
 
-/* Desktop e telas grandes */
 @media (min-width: 993px) {
   .pokemon-card {
     max-width: 420px;

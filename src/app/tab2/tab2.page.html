@@ -1,19 +1,46 @@
 <ion-content [fullscreen]="true">
   <div
-    *ngIf="favorites.length === 0"
+    *ngIf="pokemonDatas.length === 0"
     class="empty-state ion-text-center ion-padding"
   >
     <ion-icon name="heart-outline" class="empty-icon"></ion-icon>
     <p>Nenhum Pokémon favoritado.</p>
   </div>
 
-  <div class="favorites-container">
-    <div class="favorites-grid">
+  <div class="pokemon-list">
+    <div *ngFor="let pokemon of pokemonDatas" class="pokemon-item">
+      <!-- Card do Pokémon -->
       <app-pokemon-card
-        *ngFor="let pokemon of favorites"
         [pokemonDatasInput]="pokemon"
         class="favorite-card"
       ></app-pokemon-card>
+
+      <!-- Informações do Pokémon -->
+      <div class="pokemon-info">
+        <div class="info-section">
+          <h3>Estatísticas</h3>
+          <div *ngFor="let stat of pokemon.stats" class="stat-item">
+            <span class="stat-name">{{ stat.stat.name | titlecase }}</span>
+            <span class="stat-value">{{ stat.base_stat }}</span>
+            <ion-progress-bar
+              value="{{ stat.base_stat / 200 }}"
+              color="primary"
+            ></ion-progress-bar>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <h3>Detalhes</h3>
+          <div class="detail-item">
+            <span>Número:</span>
+            <span>#{{ pokemon.id }}</span>
+          </div>
+          <div class="detail-item">
+            <span>Nome:</span>
+            <span>{{ pokemon.name | titlecase }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>
