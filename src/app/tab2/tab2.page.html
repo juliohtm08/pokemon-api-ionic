@@ -1,17 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div
+    *ngIf="favorites.length === 0"
+    class="empty-state ion-text-center ion-padding"
+  >
+    <ion-icon name="heart-outline" class="empty-icon"></ion-icon>
+    <p>Nenhum Pokémon favoritado.</p>
+  </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="favorites-container">
+    <div class="favorites-grid">
+      <app-pokemon-card
+        *ngFor="let pokemon of favorites"
+        [pokemonDatasInput]="pokemon"
+        class="favorite-card"
+      ></app-pokemon-card>
+    </div>
+  </div>
 </ion-content>

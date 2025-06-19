@@ -6,7 +6,7 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
-import { PokemonCardComponent } from '../modules/pokemon/components/pokemon-card/pokemon-card.component';
+import { PokemonCardModule } from '../modules/shared/components/pokemon-card/pokemon-card.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,8 @@ import { PokemonCardComponent } from '../modules/pokemon/components/pokemon-card
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
+    PokemonCardModule,
   ],
-  declarations: [Tab1Page, PokemonCardComponent],
+  declarations: [Tab1Page],
 })
 export class Tab1PageModule {}

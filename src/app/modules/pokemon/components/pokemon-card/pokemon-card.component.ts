@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IPokemonDatas } from 'src/app/models/interfaces/pokemon.interface';
+import { FavoritesService } from '../../service/pokemon/favorites/favorites.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -7,8 +9,20 @@ import { IPokemonDatas } from 'src/app/models/interfaces/pokemon.interface';
   styleUrls: ['./pokemon-card.component.scss'],
   standalone: false,
 })
-export class PokemonCardComponent implements OnInit {
+export class PokemonCardComponent {
   @Input() pokemonDatasInput!: IPokemonDatas;
+
+  constructor(
+    public favoriteService: FavoritesService,
+    private router: Router
+  ) {}
+
+  toggleFavorite(): void {
+    this.favoriteService.toggleFavorite(this.pokemonDatasInput);
+    if (!this.favoriteService.isFavorite(this.pokemonDatasInput.id)) return;
+
+    this.router.navigate(['../../../../tabs/tab2']);
+  }
 
   cardStyles = {
     transform: '',
@@ -19,10 +33,6 @@ export class PokemonCardComponent implements OnInit {
   imgStyles = {
     transform: '',
   };
-
-  ngOnInit(): void {
-    console.log('DADOS RECEBIDOS DO CARD: ', this.pokemonDatasInput);
-  }
 
   onCardMouseEnter() {
     this.cardStyles = {

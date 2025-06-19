@@ -15,8 +15,9 @@ $text-color: #f0f0f0;
 }
 
 .pokemon-card {
-  max-width: 100%;
   width: 100%;
+  max-width: 250px; // Ou outro valor que você achar ideal
+  flex: 1 1 250px; // Permite crescer e quebrar linha
   min-height: auto;
   margin: auto;
   display: flex;

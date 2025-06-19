@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
   ],
+
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

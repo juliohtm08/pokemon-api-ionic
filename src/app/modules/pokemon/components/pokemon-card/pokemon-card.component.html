@@ -32,6 +32,22 @@
     </ion-card-content>
 
     <!-- Rodapé -->
+    <ion-button
+      fill="clear"
+      size="small"
+      (click)="toggleFavorite()"
+      style="margin: auto"
+    >
+      <ion-icon
+        slot="icon-only"
+        [name]="
+          favoriteService.isFavorite(pokemonDatasInput.id)
+            ? 'heart'
+            : 'heart-outline'
+        "
+      ></ion-icon>
+    </ion-button>
+
     <div class="card-footer">Pokémon</div>
   </ion-card>
 </div>

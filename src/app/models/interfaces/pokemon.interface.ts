@@ -1,4 +1,5 @@
 export interface IPokemonDatas {
+  id: number;
   name: string;
   sprites: {
     versions: {

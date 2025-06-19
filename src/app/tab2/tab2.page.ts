@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { FavoritesService } from './../modules/pokemon/service/pokemon/favorites/favorites.service';
+import { Component, OnInit } from '@angular/core';
+import { IPokemonDatas } from '../models/interfaces/pokemon.interface';
 
 @Component({
   selector: 'app-tab2',
@@ -6,8 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss'],
   standalone: false,
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
+  favorites: IPokemonDatas[] = [];
 
-  constructor() {}
+  constructor(private favoritesService: FavoritesService) {}
 
+  ngOnInit(): void {
+    this.favoritesService.favorites$.subscribe((list) => {
+      this.favorites = list;
+    });
+  }
 }
